@@ -33,15 +33,34 @@ const numIntersect2 = (nums1, nums2) => {
 
     //compare values in nums2 to the num1set, add to the results array
     let commonNums = [];
+
+    /*
+    //with forEach
+    nums2.forEach(el => {
+        if((num1Set[el] == true) && (!commonNums.includes(el))) {
+            commonNums.push(el)
+        }
+    });
+    
+    //with filter
+    const batman = nums2.filter(el => {
+        if((num1Set[el] == true) && (!commonNums.includes(el))) {
+            return el;
+        }
+    })
+    */
+    
     for(let i=0; i<nums2.length; i++) {
         //check vals in num1set AND that commonNums doesn't already have the value
         if((num1Set[nums2[i]] == true) && (!commonNums.includes(nums2[i]))) {
             commonNums.push(nums2[i])
         }
     }
+    
+   //console.log(batman)
     return commonNums;
     
 }
 
 
-numIntersect2([2,4,4,2,3,7], [2,7,3,4])
+numIntersect2([2,4,6,8], [2,4])
